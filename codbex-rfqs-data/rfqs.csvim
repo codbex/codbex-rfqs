@@ -1,0 +1,26 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_REQUESTSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-rfqs-data/request-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    },
+    {
+      "table": "CODBEX_QUOTATIONSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-rfqs-data/quotation-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    }
+  ]
+}
