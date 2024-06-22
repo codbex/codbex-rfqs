@@ -29,12 +29,6 @@
             "type": "git",
             "url": "https://github.com/codbex/codbex-uoms.git",
             "branch": "main"
-        },
-        {
-            "guid": "codbex-uoms",
-            "type": "git",
-            "url": "https://github.com/codbex/codbex-countries.git",
-            "branch": "main"
         }
     ]
 }
