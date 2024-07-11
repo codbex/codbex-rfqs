@@ -14,6 +14,6 @@
         "@codbex/codbex-partners": "0.1.0",
         "@codbex/codbex-currencies": "0.1.0",
         "@codbex/codbex-currencies-data": "0.1.0",
-        "@codbex/codbex-uoms": "0.1.0"
+        "@codbex/codbex-uoms": "0.2.0"
     }
 }
