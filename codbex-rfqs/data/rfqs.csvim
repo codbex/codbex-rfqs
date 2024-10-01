@@ -3,7 +3,7 @@
     {
       "table": "CODBEX_REQUESTSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-rfqs-data/request-statuses.csv",
+      "file": "/codbex-rfqs/data/request-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -14,7 +14,7 @@
     {
       "table": "CODBEX_QUOTATIONSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-rfqs-data/quotation-statuses.csv",
+      "file": "/codbex-rfqs/data/quotation-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",

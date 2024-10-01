@@ -14,7 +14,7 @@ jobs:
   main:
     uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      packages: codbex-rfqs,codbex-rfqs-data
+      packages: codbex-rfqs
       packages-build: codbex-rfqs
       release-version: ${{ inputs.release-version }}
       release-content: |
@@ -26,7 +26,6 @@ jobs:
   
         ```
         npm install @codbex/codbex-rfqs@${{ inputs.release-version }}
-        npm install @codbex/codbex-rfqs-data@${{ inputs.release-version }}
         ```
   
         ## Access points:
