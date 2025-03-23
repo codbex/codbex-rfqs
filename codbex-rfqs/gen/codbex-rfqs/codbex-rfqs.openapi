@@ -1,0 +1,2899 @@
+openapi: 3.0.3
+info:
+  title: RFQs Management Application - OpenAPI 3.0
+  version: 1.0.0
+  description: Management RFQs Data
+externalDocs:
+  description: Find out more about Eclipse Dirigible
+  url: https://dirigible.io
+servers:
+  - url: /services/ts
+tags:
+  - name: Request
+  - name: Quotation
+  - name: entities
+  - name: entities
+paths:
+  /codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts:
+    get:
+      summary: List Request
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - Request
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Request'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create Request
+      tags:
+        - Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts/{id}:
+    get:
+      summary: Get Request by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Request
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Request'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update Request by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Request'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Request'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete Request by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Request
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts/count:
+    get:
+      summary: Count the number of Request
+      tags:
+        - Request
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of Request by RequestFilterOptions
+      tags:
+        - Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                      Location: "abcd"
+                      CurrencyCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+                      Location: "abcd"
+                      CurrencyCode: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts/search:
+    post:
+      summary: Search Request by RequestFilterOptions
+      tags:
+        - Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                      Location: "abcd"
+                      CurrencyCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+                      Location: "abcd"
+                      CurrencyCode: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Request'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Quotation/QuotationService.ts:
+    get:
+      summary: List Quotation
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - Quotation
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Quotation'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create Quotation
+      tags:
+        - Quotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quotation'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quotation'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Quotation/QuotationService.ts/{id}:
+    get:
+      summary: Get Quotation by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Quotation
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Quotation'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update Quotation by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Quotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quotation'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quotation'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete Quotation by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - Quotation
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Quotation/QuotationService.ts/count:
+    get:
+      summary: Count the number of Quotation
+      tags:
+        - Quotation
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of Quotation by QuotationFilterOptions
+      tags:
+        - Quotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                      CurrencyCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+                      CurrencyCode: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/Quotation/QuotationService.ts/search:
+    post:
+      summary: Search Quotation by QuotationFilterOptions
+      tags:
+        - Quotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                      CurrencyCode: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+                      CurrencyCode: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Quotation'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts:
+    get:
+      summary: List RequestStatus
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/RequestStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create RequestStatus
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestStatus'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts/{id}:
+    get:
+      summary: Get RequestStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/RequestStatus'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update RequestStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestStatus'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete RequestStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts/count:
+    get:
+      summary: Count the number of RequestStatus
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of RequestStatus by RequestStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestStatusFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts/search:
+    post:
+      summary: Search RequestStatus by RequestStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestStatusFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/RequestStatus'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts:
+    get:
+      summary: List QuotationStatus
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/QuotationStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create QuotationStatus
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationStatus'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuotationStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts/{id}:
+    get:
+      summary: Get QuotationStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/QuotationStatus'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update QuotationStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationStatus'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuotationStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete QuotationStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts/count:
+    get:
+      summary: Count the number of QuotationStatus
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of QuotationStatus by QuotationStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationStatusFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts/search:
+    post:
+      summary: Search QuotationStatus by QuotationStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuotationStatusFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/QuotationStatus'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Request:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+        Date:
+        DueDate:
+        Quantity:
+          type: number
+          format: double
+        Price:
+          type: number
+          format: double
+        Total:
+          type: number
+          format: double
+        Location:
+          type: string
+          minLength: 0
+          maxLength: 100
+        Product:
+          type: integer
+          format: int32
+        Buyer:
+          type: integer
+          format: int32
+        Trader:
+          type: integer
+          format: int32
+        UoM:
+          type: integer
+          format: int32
+        CurrencyCode:
+          type: string
+          minLength: 0
+          maxLength: 3
+        Country:
+          type: integer
+          format: int32
+        RequestStatus:
+          type: integer
+          format: int32
+    RequestFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+                Date:
+                  oneOf:
+                DueDate:
+                  oneOf:
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Price:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Total:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Location:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 100
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 100
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Buyer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Trader:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                CurrencyCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 3
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 3
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                RequestStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+                Date:
+                  oneOf:
+                DueDate:
+                  oneOf:
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Price:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Total:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Location:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 100
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 100
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Buyer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Trader:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                CurrencyCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 3
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 3
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                RequestStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                DueDate:
+                Quantity:
+                Price:
+                Total:
+                Location:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Product:
+                Buyer:
+                Trader:
+                UoM:
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Country:
+                RequestStatus:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                DueDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Location:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Product:
+                  type: integer
+                  format: int32
+                Buyer:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Country:
+                  type: integer
+                  format: int32
+                RequestStatus:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                DueDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Location:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Product:
+                  type: integer
+                  format: int32
+                Buyer:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Country:
+                  type: integer
+                  format: int32
+                RequestStatus:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                DueDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Location:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Product:
+                  type: integer
+                  format: int32
+                Buyer:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Country:
+                  type: integer
+                  format: int32
+                RequestStatus:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                DueDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Location:
+                  type: string
+                  minLength: 0
+                  maxLength: 100
+                Product:
+                  type: integer
+                  format: int32
+                Buyer:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Country:
+                  type: integer
+                  format: int32
+                RequestStatus:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "Name", "Date", "DueDate", "Quantity", "Price", "Total", "Location", "Product", "Buyer", "Trader", "UoM", "CurrencyCode", "Country", "RequestStatus"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name,Date,DueDate,Quantity,Price,Total,Location,Product,Buyer,Trader,UoM,CurrencyCode,Country,RequestStatus"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    Quotation:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Request:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+        Date:
+        ValidityDate:
+        Quantity:
+          type: number
+          format: double
+        Price:
+          type: number
+          format: double
+        Total:
+          type: number
+          format: double
+        Product:
+          type: integer
+          format: int32
+        UoM:
+          type: integer
+          format: int32
+        CurrencyCode:
+          type: string
+          minLength: 0
+          maxLength: 3
+        Supplier:
+          type: integer
+          format: int32
+        Trader:
+          type: integer
+          format: int32
+        QuotationStatus:
+          type: integer
+          format: int32
+    QuotationFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Request:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+                Date:
+                  oneOf:
+                ValidityDate:
+                  oneOf:
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Price:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Total:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                CurrencyCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 3
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 3
+                Supplier:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Trader:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                QuotationStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Request:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+                Date:
+                  oneOf:
+                ValidityDate:
+                  oneOf:
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Price:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Total:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                CurrencyCode:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 3
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 3
+                Supplier:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Trader:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                QuotationStatus:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            contains:
+              type: object
+              properties:
+                Id:
+                Request:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                ValidityDate:
+                Quantity:
+                Price:
+                Total:
+                Product:
+                UoM:
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Supplier:
+                Trader:
+                QuotationStatus:
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Request:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                ValidityDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Product:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Supplier:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                QuotationStatus:
+                  type: integer
+                  format: int32
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Request:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                ValidityDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Product:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Supplier:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                QuotationStatus:
+                  type: integer
+                  format: int32
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Request:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                ValidityDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Product:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Supplier:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                QuotationStatus:
+                  type: integer
+                  format: int32
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Request:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+                Date:
+                ValidityDate:
+                Quantity:
+                  type: number
+                  format: double
+                Price:
+                  type: number
+                  format: double
+                Total:
+                  type: number
+                  format: double
+                Product:
+                  type: integer
+                  format: int32
+                UoM:
+                  type: integer
+                  format: int32
+                CurrencyCode:
+                  type: string
+                  minLength: 0
+                  maxLength: 3
+                Supplier:
+                  type: integer
+                  format: int32
+                Trader:
+                  type: integer
+                  format: int32
+                QuotationStatus:
+                  type: integer
+                  format: int32
+        $select:
+          type: array
+          example: ["Id", "Request", "Name", "Date", "ValidityDate", "Quantity", "Price", "Total", "Product", "UoM", "CurrencyCode", "Supplier", "Trader", "QuotationStatus"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Request,Name,Date,ValidityDate,Quantity,Price,Total,Product,UoM,CurrencyCode,Supplier,Trader,QuotationStatus"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    RequestStatus:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    RequestStatusFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    QuotationStatus:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    QuotationStatusFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string

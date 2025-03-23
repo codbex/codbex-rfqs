@@ -1,0 +1,5 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/launchpad/Home/view.js",
+    "extensionPoint": "codbex-rfqs-view",
+    "description": "codbex-rfqs - Application View"
+}

@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/entities/QuotationStatus/dialog-window/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "codbex-rfqs - Application Dialog Window",
+    "role": "codbex-rfqs.entities.QuotationStatusReadOnly,codbex-rfqs.entities.QuotationStatusFullAccess"
+}

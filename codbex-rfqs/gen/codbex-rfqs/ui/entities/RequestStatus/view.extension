@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/entities/RequestStatus/view.js",
+    "extensionPoint": "codbex-rfqs-view",
+    "description": "codbex-rfqs - Application View",
+    "role": "codbex-rfqs.entities.RequestStatusReadOnly,codbex-rfqs.entities.RequestStatusFullAccess"
+}

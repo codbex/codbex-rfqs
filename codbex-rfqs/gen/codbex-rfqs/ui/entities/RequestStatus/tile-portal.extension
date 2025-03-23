@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/entities/RequestStatus/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-rfqs - Application Tile",
+    "role": "codbex-rfqs.entities.RequestStatusReadOnly,codbex-rfqs.entities.RequestStatusFullAccess"
+}

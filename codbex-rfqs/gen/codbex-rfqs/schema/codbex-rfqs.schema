@@ -1,0 +1,337 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_REQUEST",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "REQUEST_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "REQUEST_NAME"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "REQUEST_DATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "REQUEST_DUEDATE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "REQUEST_QUANTITY"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "REQUEST_PRICE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "REQUEST_TOTAL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "nullable": true,
+                        "name": "REQUEST_LOCATION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_BUYER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_TRADER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_UOM"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "REQUEST_CURRENCYCODE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_COUNTRY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "REQUEST_REQUESTSTATUS"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_QUOTATION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "QUOTATION_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_REQUEST"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "QUOTATION_NAME"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "QUOTATION_DATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "QUOTATION_VALIDITYDATE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "QUOTATION_QUANTITY"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "QUOTATION_PRICE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "QUOTATION_TOTAL"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_UOMID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "QUOTATION_CURRENCYCODE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_SUPPLIER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_TRADER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "QUOTATION_QUOTATIONSTATUSID"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_REQUESTSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "REQUESTSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "REQUESTSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_QUOTATIONSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "QUOTATIONSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "QUOTATIONSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "Request_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_Product",
+                "columns": "REQUEST_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "Request_Partner",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_Partner",
+                "columns": "REQUEST_BUYER",
+                "referencedTable": "CODBEX_PARTNER",
+                "referencedColumns": "PARTNER_ID"
+            },
+            {
+                "name": "Request_Partner",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_Partner",
+                "columns": "REQUEST_TRADER",
+                "referencedTable": "CODBEX_PARTNER",
+                "referencedColumns": "PARTNER_ID"
+            },
+            {
+                "name": "Request_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_UoM",
+                "columns": "REQUEST_UOM",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "Request_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_Currency",
+                "columns": "REQUEST_CURRENCYCODE",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_CODE"
+            },
+            {
+                "name": "Request_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_Country",
+                "columns": "REQUEST_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Request_RequestStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_REQUEST",
+                "constraintName": "Request_RequestStatus",
+                "columns": "REQUEST_REQUESTSTATUS",
+                "referencedTable": "CODBEX_REQUESTSTATUS",
+                "referencedColumns": "REQUESTSTATUS_ID"
+            },
+            {
+                "name": "Quotation_Request",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_Request",
+                "columns": "QUOTATION_REQUEST",
+                "referencedTable": "CODBEX_REQUEST",
+                "referencedColumns": "REQUEST_ID"
+            },
+            {
+                "name": "Quotation_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_Product",
+                "columns": "QUOTATION_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "Quotation_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_UoM",
+                "columns": "QUOTATION_UOMID",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "Quotation_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_Currency",
+                "columns": "QUOTATION_CURRENCYCODE",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_CODE"
+            },
+            {
+                "name": "Quotation_Partner",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_Partner",
+                "columns": "QUOTATION_SUPPLIER",
+                "referencedTable": "CODBEX_PARTNER",
+                "referencedColumns": "PARTNER_ID"
+            },
+            {
+                "name": "Quotation_Partner",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_Partner",
+                "columns": "QUOTATION_TRADER",
+                "referencedTable": "CODBEX_PARTNER",
+                "referencedColumns": "PARTNER_ID"
+            },
+            {
+                "name": "Quotation_QuotationStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_QUOTATION",
+                "constraintName": "Quotation_QuotationStatus",
+                "columns": "QUOTATION_QUOTATIONSTATUSID",
+                "referencedTable": "CODBEX_QUOTATIONSTATUS",
+                "referencedColumns": "QUOTATIONSTATUS_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
