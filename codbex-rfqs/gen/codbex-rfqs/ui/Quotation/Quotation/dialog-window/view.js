@@ -7,7 +7,10 @@ const viewData = {
     id: "Quotation-details",
     label: "Quotation",
     link: "/services/web/codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/dialog-window/index.html",
-    perspectiveName: "Quotation"
+    perspectiveName: "Quotation",
+    roles: [
+        "codbex-rfqs.Quotation.QuotationReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

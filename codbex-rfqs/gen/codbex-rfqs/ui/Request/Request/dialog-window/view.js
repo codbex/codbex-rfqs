@@ -7,7 +7,10 @@ const viewData = {
     id: "Request-details",
     label: "Request",
     link: "/services/web/codbex-rfqs/gen/codbex-rfqs/ui/Request/Request/dialog-window/index.html",
-    perspectiveName: "Request"
+    perspectiveName: "Request",
+    roles: [
+        "codbex-rfqs.Request.RequestReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

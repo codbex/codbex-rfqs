@@ -7,7 +7,7 @@ const viewData = {
     id: "Quotation",
     label: "Quotation",
     factory: "frame",
-    region: "center",
+    region: "left",
     link: "/services/web/codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/index.html",
     perspectiveName: "Quotation"
 };

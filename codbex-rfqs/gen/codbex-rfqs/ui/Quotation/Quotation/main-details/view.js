@@ -4,12 +4,12 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Request",
-    label: "Request",
+    id: "Quotation-details",
+    label: "Quotation",
     factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-rfqs/gen/codbex-rfqs/ui/Request/Request/index.html",
-    perspectiveName: "Request"
+    region: "center",
+    link: "/services/web/codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/main-details/index.html",
+    perspectiveName: "Quotation"
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Request/Request/main-details/view.js",
+    "extensionPoint": "codbex-rfqs-view",
+    "description": "codbex-rfqs - Application View - Main Details",
+    "role": "codbex-rfqs.Request.RequestReadOnly,codbex-rfqs.Request.RequestFullAccess"
+}
