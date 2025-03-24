@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/view.js",
+    "extensionPoint": "codbex-rfqs-view",
+    "description": "codbex-rfqs - Application View",
+    "role": "codbex-rfqs.Quotation.QuotationReadOnly,codbex-rfqs.Quotation.QuotationFullAccess"
+}

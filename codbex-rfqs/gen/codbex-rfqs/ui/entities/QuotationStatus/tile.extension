@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/entities/QuotationStatus/tile.js",
+    "extensionPoint": "codbex-rfqs-tile",
+    "description": "codbex-rfqs - Application Tile",
+    "role": "codbex-rfqs.entities.QuotationStatusReadOnly,codbex-rfqs.entities.QuotationStatusFullAccess"
+}

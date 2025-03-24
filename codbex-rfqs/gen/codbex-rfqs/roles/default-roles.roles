@@ -1,0 +1,34 @@
+[
+    {
+        "name": "codbex-rfqs.Request.RequestReadOnly",
+        "description": "A role that grants read only permission for Request."
+    },
+    {
+        "name": "codbex-rfqs.Request.RequestFullAccess",
+        "description": "A role that grants full access for Request."
+    },
+    {
+        "name": "codbex-rfqs.Quotation.QuotationReadOnly",
+        "description": "A role that grants read only permission for Quotation."
+    },
+    {
+        "name": "codbex-rfqs.Quotation.QuotationFullAccess",
+        "description": "A role that grants full access for Quotation."
+    },
+    {
+        "name": "codbex-rfqs.entities.RequestStatusReadOnly",
+        "description": "A role that grants read only permission for RequestStatus."
+    },
+    {
+        "name": "codbex-rfqs.entities.RequestStatusFullAccess",
+        "description": "A role that grants full access for RequestStatus."
+    },
+    {
+        "name": "codbex-rfqs.entities.QuotationStatusReadOnly",
+        "description": "A role that grants read only permission for QuotationStatus."
+    },
+    {
+        "name": "codbex-rfqs.entities.QuotationStatusFullAccess",
+        "description": "A role that grants full access for QuotationStatus."
+    }
+]

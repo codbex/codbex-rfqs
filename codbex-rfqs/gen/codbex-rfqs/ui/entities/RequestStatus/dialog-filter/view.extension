@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/entities/RequestStatus/dialog-filter/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "codbex-rfqs - Application Dialog Window",
+    "role": "codbex-rfqs.entities.RequestStatusReadOnly,codbex-rfqs.entities.RequestStatusFullAccess"
+}

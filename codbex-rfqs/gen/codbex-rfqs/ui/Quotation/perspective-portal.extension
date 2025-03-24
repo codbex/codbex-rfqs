@@ -1,0 +1,5 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Quotation/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-rfqs - Perspective - Quotation"
+}

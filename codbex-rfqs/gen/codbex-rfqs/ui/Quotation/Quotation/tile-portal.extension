@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-rfqs - Application Tile",
+    "role": "codbex-rfqs.Quotation.QuotationReadOnly,codbex-rfqs.Quotation.QuotationFullAccess"
+}

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Request/perspective.js",
+    "extensionPoint": "codbex-rfqs",
+    "description": "codbex-rfqs - Perspective - Request"
+}

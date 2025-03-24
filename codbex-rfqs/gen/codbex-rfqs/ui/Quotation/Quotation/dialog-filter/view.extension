@@ -1,0 +1,6 @@
+{
+    "module": "codbex-rfqs/gen/codbex-rfqs/ui/Quotation/Quotation/dialog-filter/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "codbex-rfqs - Application Dialog Window",
+    "role": "codbex-rfqs.Quotation.QuotationReadOnly,codbex-rfqs.Quotation.QuotationFullAccess"
+}
