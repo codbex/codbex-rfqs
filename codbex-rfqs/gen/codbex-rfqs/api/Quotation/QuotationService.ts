@@ -141,8 +141,8 @@ class QuotationService {
         if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
-        if (entity.CurrencyCode?.length > 3) {
-            throw new ValidationError(`The 'CurrencyCode' exceeds the maximum length of [3] characters`);
+        if (entity.Currency?.length > 3) {
+            throw new ValidationError(`The 'Currency' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

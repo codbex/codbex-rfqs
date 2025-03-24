@@ -274,24 +274,24 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCurrencyCode" dg-required="false" dg-colon="true">CurrencyCode</fd-form-label>
+                        	<fd-form-label for="idCurrency" dg-required="false" dg-colon="true">Currency</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idCurrencyCode"
-	                            name="CurrencyCode"
-	                            state="{{ forms.details['CurrencyCode'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idCurrency"
+	                            name="Currency"
+	                            state="{{ forms.details['Currency'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.CurrencyCode"
+	                            ng-model="entity.Currency"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsCurrencyCode"
-	                            dg-placeholder="Search CurrencyCode ...">
+	                            dropdown-items="optionsCurrency"
+	                            dg-placeholder="Search Currency ...">
 	                        </fd-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createCurrencyCode()" ng-hide="action === 'select'">
+							<button class="fd-button" ng-click="createCurrency()" ng-hide="action === 'select'">
 								<i class="sap-icon--add" role="presentation"></i>
 							</button>
-							<button class="fd-button" ng-click="refreshCurrencyCode()" ng-hide="action === 'select'">
+							<button class="fd-button" ng-click="refreshCurrency()" ng-hide="action === 'select'">
 								<i class="sap-icon--refresh" role="presentation"></i>
 							</button>
 							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
@@ -324,24 +324,24 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idRequestStatus" dg-required="false" dg-colon="true">RequestStatus</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idRequestStatus"
-	                            name="RequestStatus"
-	                            state="{{ forms.details['RequestStatus'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idStatus"
+	                            name="Status"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.RequestStatus"
+	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsRequestStatus"
-	                            dg-placeholder="Search RequestStatus ...">
+	                            dropdown-items="optionsStatus"
+	                            dg-placeholder="Search Status ...">
 	                        </fd-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createRequestStatus()" ng-hide="action === 'select'">
+							<button class="fd-button" ng-click="createStatus()" ng-hide="action === 'select'">
 								<i class="sap-icon--add" role="presentation"></i>
 							</button>
-							<button class="fd-button" ng-click="refreshRequestStatus()" ng-hide="action === 'select'">
+							<button class="fd-button" ng-click="refreshStatus()" ng-hide="action === 'select'">
 								<i class="sap-icon--refresh" role="presentation"></i>
 							</button>
 							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>

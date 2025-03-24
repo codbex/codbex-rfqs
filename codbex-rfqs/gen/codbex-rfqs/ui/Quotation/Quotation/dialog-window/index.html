@@ -210,17 +210,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCurrencyCode" dg-required="false" dg-colon="true">CurrencyCode</fd-form-label>
+                        	<fd-form-label for="idCurrency" dg-required="false" dg-colon="true">Currency</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idCurrencyCode"
-	                            name="CurrencyCode"
-	                            state="{{ forms.details['CurrencyCode'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idCurrency"
+	                            name="Currency"
+	                            state="{{ forms.details['Currency'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.CurrencyCode"
+	                            ng-model="entity.Currency"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsCurrencyCode"
-	                            dg-placeholder="Search CurrencyCode ...">
+	                            dropdown-items="optionsCurrency"
+	                            dg-placeholder="Search Currency ...">
 	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
@@ -261,17 +261,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idQuotationStatus" dg-required="false" dg-colon="true">QuotationStatus</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idQuotationStatus"
-	                            name="QuotationStatus"
-	                            state="{{ forms.details['QuotationStatus'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idStatus"
+	                            name="Status"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.QuotationStatus"
+	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsQuotationStatus"
-	                            dg-placeholder="Search QuotationStatus ...">
+	                            dropdown-items="optionsStatus"
+	                            dg-placeholder="Search Status ...">
 	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>

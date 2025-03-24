@@ -17,9 +17,9 @@ export interface RequestEntity {
     Buyer?: number;
     Trader?: number;
     UoM?: number;
-    CurrencyCode?: string;
+    Currency?: string;
     Country?: number;
-    RequestStatus?: number;
+    Status?: number;
 }
 
 export interface RequestCreateEntity {
@@ -34,9 +34,9 @@ export interface RequestCreateEntity {
     readonly Buyer?: number;
     readonly Trader?: number;
     readonly UoM?: number;
-    readonly CurrencyCode?: string;
+    readonly Currency?: string;
     readonly Country?: number;
-    readonly RequestStatus?: number;
+    readonly Status?: number;
 }
 
 export interface RequestUpdateEntity extends RequestCreateEntity {
@@ -58,9 +58,9 @@ export interface RequestEntityOptions {
             Buyer?: number | number[];
             Trader?: number | number[];
             UoM?: number | number[];
-            CurrencyCode?: string | string[];
+            Currency?: string | string[];
             Country?: number | number[];
-            RequestStatus?: number | number[];
+            Status?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -75,9 +75,9 @@ export interface RequestEntityOptions {
             Buyer?: number | number[];
             Trader?: number | number[];
             UoM?: number | number[];
-            CurrencyCode?: string | string[];
+            Currency?: string | string[];
             Country?: number | number[];
-            RequestStatus?: number | number[];
+            Status?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -92,9 +92,9 @@ export interface RequestEntityOptions {
             Buyer?: number;
             Trader?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Country?: number;
-            RequestStatus?: number;
+            Status?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -109,9 +109,9 @@ export interface RequestEntityOptions {
             Buyer?: number;
             Trader?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Country?: number;
-            RequestStatus?: number;
+            Status?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -126,9 +126,9 @@ export interface RequestEntityOptions {
             Buyer?: number;
             Trader?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Country?: number;
-            RequestStatus?: number;
+            Status?: number;
         };
         lessThan?: {
             Id?: number;
@@ -143,9 +143,9 @@ export interface RequestEntityOptions {
             Buyer?: number;
             Trader?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Country?: number;
-            RequestStatus?: number;
+            Status?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -160,9 +160,9 @@ export interface RequestEntityOptions {
             Buyer?: number;
             Trader?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Country?: number;
-            RequestStatus?: number;
+            Status?: number;
         };
     },
     $select?: (keyof RequestEntity)[],
@@ -255,8 +255,8 @@ export class RequestRepository {
                 type: "INTEGER",
             },
             {
-                name: "CurrencyCode",
-                column: "REQUEST_CURRENCYCODE",
+                name: "Currency",
+                column: "REQUEST_CURRENCY",
                 type: "VARCHAR",
             },
             {
@@ -265,8 +265,8 @@ export class RequestRepository {
                 type: "INTEGER",
             },
             {
-                name: "RequestStatus",
-                column: "REQUEST_REQUESTSTATUS",
+                name: "Status",
+                column: "REQUEST_STATUS",
                 type: "INTEGER",
             }
         ]

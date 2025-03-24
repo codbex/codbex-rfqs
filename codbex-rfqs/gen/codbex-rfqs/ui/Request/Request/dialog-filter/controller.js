@@ -30,9 +30,9 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsBuyer = params.optionsBuyer;
 			$scope.optionsTrader = params.optionsTrader;
 			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsCurrencyCode = params.optionsCurrencyCode;
+			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsCountry = params.optionsCountry;
-			$scope.optionsRequestStatus = params.optionsRequestStatus;
+			$scope.optionsStatus = params.optionsStatus;
 		}
 
 		$scope.filter = function () {
@@ -97,14 +97,14 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.UoM !== undefined) {
 				filter.$filter.equals.UoM = entity.UoM;
 			}
-			if (entity.CurrencyCode) {
-				filter.$filter.contains.CurrencyCode = entity.CurrencyCode;
+			if (entity.Currency) {
+				filter.$filter.contains.Currency = entity.Currency;
 			}
 			if (entity.Country !== undefined) {
 				filter.$filter.equals.Country = entity.Country;
 			}
-			if (entity.RequestStatus !== undefined) {
-				filter.$filter.equals.RequestStatus = entity.RequestStatus;
+			if (entity.Status !== undefined) {
+				filter.$filter.equals.Status = entity.Status;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

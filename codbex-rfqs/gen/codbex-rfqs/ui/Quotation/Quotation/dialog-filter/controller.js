@@ -29,10 +29,10 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsRequest = params.optionsRequest;
 			$scope.optionsProduct = params.optionsProduct;
 			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsCurrencyCode = params.optionsCurrencyCode;
+			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsSupplier = params.optionsSupplier;
 			$scope.optionsTrader = params.optionsTrader;
-			$scope.optionsQuotationStatus = params.optionsQuotationStatus;
+			$scope.optionsStatus = params.optionsStatus;
 		}
 
 		$scope.filter = function () {
@@ -91,8 +91,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.UoM !== undefined) {
 				filter.$filter.equals.UoM = entity.UoM;
 			}
-			if (entity.CurrencyCode) {
-				filter.$filter.contains.CurrencyCode = entity.CurrencyCode;
+			if (entity.Currency) {
+				filter.$filter.contains.Currency = entity.Currency;
 			}
 			if (entity.Supplier !== undefined) {
 				filter.$filter.equals.Supplier = entity.Supplier;
@@ -100,8 +100,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Trader !== undefined) {
 				filter.$filter.equals.Trader = entity.Trader;
 			}
-			if (entity.QuotationStatus !== undefined) {
-				filter.$filter.equals.QuotationStatus = entity.QuotationStatus;
+			if (entity.Status !== undefined) {
+				filter.$filter.equals.Status = entity.Status;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

@@ -73,7 +73,7 @@
                         "type": "VARCHAR",
                         "length": 3,
                         "nullable": true,
-                        "name": "REQUEST_CURRENCYCODE"
+                        "name": "REQUEST_CURRENCY"
                     },
                     {
                         "type": "INTEGER",
@@ -83,7 +83,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "REQUEST_REQUESTSTATUS"
+                        "name": "REQUEST_STATUS"
                     }
                 ]
             },
@@ -148,7 +148,7 @@
                         "type": "VARCHAR",
                         "length": 3,
                         "nullable": true,
-                        "name": "QUOTATION_CURRENCYCODE"
+                        "name": "QUOTATION_CURRENCY"
                     },
                     {
                         "type": "INTEGER",
@@ -163,7 +163,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "QUOTATION_QUOTATIONSTATUSID"
+                        "name": "QUOTATION_STATUSID"
                     }
                 ]
             },
@@ -246,7 +246,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_REQUEST",
                 "constraintName": "Request_Currency",
-                "columns": "REQUEST_CURRENCYCODE",
+                "columns": "REQUEST_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_CODE"
             },
@@ -264,7 +264,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_REQUEST",
                 "constraintName": "Request_RequestStatus",
-                "columns": "REQUEST_REQUESTSTATUS",
+                "columns": "REQUEST_STATUS",
                 "referencedTable": "CODBEX_REQUESTSTATUS",
                 "referencedColumns": "REQUESTSTATUS_ID"
             },
@@ -300,7 +300,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_QUOTATION",
                 "constraintName": "Quotation_Currency",
-                "columns": "QUOTATION_CURRENCYCODE",
+                "columns": "QUOTATION_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_CODE"
             },
@@ -327,7 +327,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_QUOTATION",
                 "constraintName": "Quotation_QuotationStatus",
-                "columns": "QUOTATION_QUOTATIONSTATUSID",
+                "columns": "QUOTATION_STATUSID",
                 "referencedTable": "CODBEX_QUOTATIONSTATUS",
                 "referencedColumns": "QUOTATIONSTATUS_ID"
             }

@@ -144,8 +144,8 @@ class RequestService {
         if (entity.Location?.length > 100) {
             throw new ValidationError(`The 'Location' exceeds the maximum length of [100] characters`);
         }
-        if (entity.CurrencyCode?.length > 3) {
-            throw new ValidationError(`The 'CurrencyCode' exceeds the maximum length of [3] characters`);
+        if (entity.Currency?.length > 3) {
+            throw new ValidationError(`The 'Currency' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

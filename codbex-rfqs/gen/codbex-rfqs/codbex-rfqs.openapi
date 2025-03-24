@@ -261,7 +261,7 @@ paths:
                     contains:
                       Name: "abcd"
                       Location: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -285,7 +285,7 @@ paths:
                     contains:
                       Name: "abcd"
                       Location: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -351,7 +351,7 @@ paths:
                     contains:
                       Name: "abcd"
                       Location: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -375,7 +375,7 @@ paths:
                     contains:
                       Name: "abcd"
                       Location: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -668,7 +668,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -691,7 +691,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -756,7 +756,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -779,7 +779,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
-                      CurrencyCode: "abcd"
+                      Currency: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -1666,14 +1666,14 @@ components:
         UoM:
           type: integer
           format: int32
-        CurrencyCode:
+        Currency:
           type: string
           minLength: 0
           maxLength: 3
         Country:
           type: integer
           format: int32
-        RequestStatus:
+        Status:
           type: integer
           format: int32
     RequestFilterOptions:
@@ -1775,7 +1775,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                CurrencyCode:
+                Currency:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -1794,7 +1794,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                RequestStatus:
+                Status:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1895,7 +1895,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                CurrencyCode:
+                Currency:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -1914,7 +1914,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                RequestStatus:
+                Status:
                   oneOf:
                     - type: integer
                       format: int32
@@ -1943,12 +1943,12 @@ components:
                 Buyer:
                 Trader:
                 UoM:
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Country:
-                RequestStatus:
+                Status:
             greaterThan:
               type: object
               properties:
@@ -1986,14 +1986,14 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Country:
                   type: integer
                   format: int32
-                RequestStatus:
+                Status:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -2033,14 +2033,14 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Country:
                   type: integer
                   format: int32
-                RequestStatus:
+                Status:
                   type: integer
                   format: int32
             lessThan:
@@ -2080,14 +2080,14 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Country:
                   type: integer
                   format: int32
-                RequestStatus:
+                Status:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -2127,24 +2127,24 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Country:
                   type: integer
                   format: int32
-                RequestStatus:
+                Status:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Date", "DueDate", "Quantity", "Price", "Total", "Location", "Product", "Buyer", "Trader", "UoM", "CurrencyCode", "Country", "RequestStatus"]
+          example: ["Id", "Name", "Date", "DueDate", "Quantity", "Price", "Total", "Location", "Product", "Buyer", "Trader", "UoM", "Currency", "Country", "Status"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Date,DueDate,Quantity,Price,Total,Location,Product,Buyer,Trader,UoM,CurrencyCode,Country,RequestStatus"
+            example: "Id,Name,Date,DueDate,Quantity,Price,Total,Location,Product,Buyer,Trader,UoM,Currency,Country,Status"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -2186,7 +2186,7 @@ components:
         UoM:
           type: integer
           format: int32
-        CurrencyCode:
+        Currency:
           type: string
           minLength: 0
           maxLength: 3
@@ -2196,7 +2196,7 @@ components:
         Trader:
           type: integer
           format: int32
-        QuotationStatus:
+        Status:
           type: integer
           format: int32
     QuotationFilterOptions:
@@ -2279,7 +2279,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                CurrencyCode:
+                Currency:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -2306,7 +2306,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                QuotationStatus:
+                Status:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2388,7 +2388,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                CurrencyCode:
+                Currency:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -2415,7 +2415,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                QuotationStatus:
+                Status:
                   oneOf:
                     - type: integer
                       format: int32
@@ -2439,13 +2439,13 @@ components:
                 Total:
                 Product:
                 UoM:
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
                 Supplier:
                 Trader:
-                QuotationStatus:
+                Status:
             greaterThan:
               type: object
               properties:
@@ -2476,7 +2476,7 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
@@ -2486,7 +2486,7 @@ components:
                 Trader:
                   type: integer
                   format: int32
-                QuotationStatus:
+                Status:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -2519,7 +2519,7 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
@@ -2529,7 +2529,7 @@ components:
                 Trader:
                   type: integer
                   format: int32
-                QuotationStatus:
+                Status:
                   type: integer
                   format: int32
             lessThan:
@@ -2562,7 +2562,7 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
@@ -2572,7 +2572,7 @@ components:
                 Trader:
                   type: integer
                   format: int32
-                QuotationStatus:
+                Status:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -2605,7 +2605,7 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                CurrencyCode:
+                Currency:
                   type: string
                   minLength: 0
                   maxLength: 3
@@ -2615,17 +2615,17 @@ components:
                 Trader:
                   type: integer
                   format: int32
-                QuotationStatus:
+                Status:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Request", "Name", "Date", "ValidityDate", "Quantity", "Price", "Total", "Product", "UoM", "CurrencyCode", "Supplier", "Trader", "QuotationStatus"]
+          example: ["Id", "Request", "Name", "Date", "ValidityDate", "Quantity", "Price", "Total", "Product", "UoM", "Currency", "Supplier", "Trader", "Status"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Request,Name,Date,ValidityDate,Quantity,Price,Total,Product,UoM,CurrencyCode,Supplier,Trader,QuotationStatus"
+            example: "Id,Request,Name,Date,ValidityDate,Quantity,Price,Total,Product,UoM,Currency,Supplier,Trader,Status"
         $order:
           type: string
           enum: ["asc", "desc"]

@@ -125,10 +125,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsRequest: $scope.optionsRequest,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsCurrencyCode: $scope.optionsCurrencyCode,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsTrader: $scope.optionsTrader,
-				optionsQuotationStatus: $scope.optionsQuotationStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -141,10 +141,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsRequest: $scope.optionsRequest,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsCurrencyCode: $scope.optionsCurrencyCode,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsTrader: $scope.optionsTrader,
-				optionsQuotationStatus: $scope.optionsQuotationStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -155,10 +155,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsRequest: $scope.optionsRequest,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsCurrencyCode: $scope.optionsCurrencyCode,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsTrader: $scope.optionsTrader,
-				optionsQuotationStatus: $scope.optionsQuotationStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -198,10 +198,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsRequest: $scope.optionsRequest,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsCurrencyCode: $scope.optionsCurrencyCode,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsTrader: $scope.optionsTrader,
-				optionsQuotationStatus: $scope.optionsQuotationStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -209,10 +209,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsRequest = [];
 		$scope.optionsProduct = [];
 		$scope.optionsUoM = [];
-		$scope.optionsCurrencyCode = [];
+		$scope.optionsCurrency = [];
 		$scope.optionsSupplier = [];
 		$scope.optionsTrader = [];
-		$scope.optionsQuotationStatus = [];
+		$scope.optionsStatus = [];
 
 
 		$http.get("/services/ts/codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts").then(function (response) {
@@ -243,7 +243,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts").then(function (response) {
-			$scope.optionsCurrencyCode = response.data.map(e => {
+			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Code,
 					text: e.Code
@@ -270,7 +270,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts").then(function (response) {
-			$scope.optionsQuotationStatus = response.data.map(e => {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -302,10 +302,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCurrencyCodeValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsCurrencyCode.length; i++) {
-				if ($scope.optionsCurrencyCode[i].value === optionKey) {
-					return $scope.optionsCurrencyCode[i].text;
+		$scope.optionsCurrencyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
+				if ($scope.optionsCurrency[i].value === optionKey) {
+					return $scope.optionsCurrency[i].text;
 				}
 			}
 			return null;
@@ -326,10 +326,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsQuotationStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsQuotationStatus.length; i++) {
-				if ($scope.optionsQuotationStatus[i].value === optionKey) {
-					return $scope.optionsQuotationStatus[i].text;
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

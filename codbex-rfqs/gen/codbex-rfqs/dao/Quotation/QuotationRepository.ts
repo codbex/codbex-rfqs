@@ -15,10 +15,10 @@ export interface QuotationEntity {
     Total?: number;
     Product?: number;
     UoM?: number;
-    CurrencyCode?: string;
+    Currency?: string;
     Supplier?: number;
     Trader?: number;
-    QuotationStatus?: number;
+    Status?: number;
 }
 
 export interface QuotationCreateEntity {
@@ -31,10 +31,10 @@ export interface QuotationCreateEntity {
     readonly Total?: number;
     readonly Product?: number;
     readonly UoM?: number;
-    readonly CurrencyCode?: string;
+    readonly Currency?: string;
     readonly Supplier?: number;
     readonly Trader?: number;
-    readonly QuotationStatus?: number;
+    readonly Status?: number;
 }
 
 export interface QuotationUpdateEntity extends QuotationCreateEntity {
@@ -54,10 +54,10 @@ export interface QuotationEntityOptions {
             Total?: number | number[];
             Product?: number | number[];
             UoM?: number | number[];
-            CurrencyCode?: string | string[];
+            Currency?: string | string[];
             Supplier?: number | number[];
             Trader?: number | number[];
-            QuotationStatus?: number | number[];
+            Status?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -70,10 +70,10 @@ export interface QuotationEntityOptions {
             Total?: number | number[];
             Product?: number | number[];
             UoM?: number | number[];
-            CurrencyCode?: string | string[];
+            Currency?: string | string[];
             Supplier?: number | number[];
             Trader?: number | number[];
-            QuotationStatus?: number | number[];
+            Status?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -86,10 +86,10 @@ export interface QuotationEntityOptions {
             Total?: number;
             Product?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Supplier?: number;
             Trader?: number;
-            QuotationStatus?: number;
+            Status?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -102,10 +102,10 @@ export interface QuotationEntityOptions {
             Total?: number;
             Product?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Supplier?: number;
             Trader?: number;
-            QuotationStatus?: number;
+            Status?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -118,10 +118,10 @@ export interface QuotationEntityOptions {
             Total?: number;
             Product?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Supplier?: number;
             Trader?: number;
-            QuotationStatus?: number;
+            Status?: number;
         };
         lessThan?: {
             Id?: number;
@@ -134,10 +134,10 @@ export interface QuotationEntityOptions {
             Total?: number;
             Product?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Supplier?: number;
             Trader?: number;
-            QuotationStatus?: number;
+            Status?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -150,10 +150,10 @@ export interface QuotationEntityOptions {
             Total?: number;
             Product?: number;
             UoM?: number;
-            CurrencyCode?: string;
+            Currency?: string;
             Supplier?: number;
             Trader?: number;
-            QuotationStatus?: number;
+            Status?: number;
         };
     },
     $select?: (keyof QuotationEntity)[],
@@ -236,8 +236,8 @@ export class QuotationRepository {
                 type: "INTEGER",
             },
             {
-                name: "CurrencyCode",
-                column: "QUOTATION_CURRENCYCODE",
+                name: "Currency",
+                column: "QUOTATION_CURRENCY",
                 type: "VARCHAR",
             },
             {
@@ -251,8 +251,8 @@ export class QuotationRepository {
                 type: "INTEGER",
             },
             {
-                name: "QuotationStatus",
-                column: "QUOTATION_QUOTATIONSTATUSID",
+                name: "Status",
+                column: "QUOTATION_STATUSID",
                 type: "INTEGER",
             }
         ]

@@ -43,10 +43,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsRequest = [];
 				$scope.optionsProduct = [];
 				$scope.optionsUoM = [];
-				$scope.optionsCurrencyCode = [];
+				$scope.optionsCurrency = [];
 				$scope.optionsSupplier = [];
 				$scope.optionsTrader = [];
-				$scope.optionsQuotationStatus = [];
+				$scope.optionsStatus = [];
 				$scope.action = 'select';
 			});
 		});
@@ -63,10 +63,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsRequest = msg.data.optionsRequest;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsUoM = msg.data.optionsUoM;
-				$scope.optionsCurrencyCode = msg.data.optionsCurrencyCode;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsTrader = msg.data.optionsTrader;
-				$scope.optionsQuotationStatus = msg.data.optionsQuotationStatus;
+				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'select';
 			});
 		});
@@ -77,10 +77,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsRequest = msg.data.optionsRequest;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsUoM = msg.data.optionsUoM;
-				$scope.optionsCurrencyCode = msg.data.optionsCurrencyCode;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsTrader = msg.data.optionsTrader;
-				$scope.optionsQuotationStatus = msg.data.optionsQuotationStatus;
+				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'create';
 			});
 		});
@@ -97,10 +97,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsRequest = msg.data.optionsRequest;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsUoM = msg.data.optionsUoM;
-				$scope.optionsCurrencyCode = msg.data.optionsCurrencyCode;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsTrader = msg.data.optionsTrader;
-				$scope.optionsQuotationStatus = msg.data.optionsQuotationStatus;
+				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'update';
 			});
 		});
@@ -108,10 +108,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceRequest = "/services/ts/codbex-rfqs/gen/codbex-rfqs/api/Request/RequestService.ts";
 		$scope.serviceProduct = "/services/ts/codbex-products/gen/codbex-products/api/entities/ProductService.ts";
 		$scope.serviceUoM = "/services/ts/codbex-uoms/gen/codbex-uoms/api/entities/UoMService.ts";
-		$scope.serviceCurrencyCode = "/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts";
+		$scope.serviceCurrency = "/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts";
 		$scope.serviceSupplier = "/services/ts/codbex-partners/gen/codbex-partners/api/entities/PartnerService.ts";
 		$scope.serviceTrader = "/services/ts/codbex-partners/gen/codbex-partners/api/entities/PartnerService.ts";
-		$scope.serviceQuotationStatus = "/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts";
+		$scope.serviceStatus = "/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts";
 
 		//-----------------Events-------------------//
 
@@ -163,7 +163,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 			}, null, false);
 		};
-		$scope.createCurrencyCode = function () {
+		$scope.createCurrency = function () {
 			messageHub.showDialogWindow("Currency-details", {
 				action: "create",
 				entity: {},
@@ -181,7 +181,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 			}, null, false);
 		};
-		$scope.createQuotationStatus = function () {
+		$scope.createStatus = function () {
 			messageHub.showDialogWindow("QuotationStatus-details", {
 				action: "create",
 				entity: {},
@@ -227,10 +227,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.refreshCurrencyCode = function () {
-			$scope.optionsCurrencyCode = [];
+		$scope.refreshCurrency = function () {
+			$scope.optionsCurrency = [];
 			$http.get("/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts").then(function (response) {
-				$scope.optionsCurrencyCode = response.data.map(e => {
+				$scope.optionsCurrency = response.data.map(e => {
 					return {
 						value: e.Code,
 						text: e.Code
@@ -260,10 +260,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				});
 			});
 		};
-		$scope.refreshQuotationStatus = function () {
-			$scope.optionsQuotationStatus = [];
+		$scope.refreshStatus = function () {
+			$scope.optionsStatus = [];
 			$http.get("/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/QuotationStatusService.ts").then(function (response) {
-				$scope.optionsQuotationStatus = response.data.map(e => {
+				$scope.optionsStatus = response.data.map(e => {
 					return {
 						value: e.Id,
 						text: e.Name

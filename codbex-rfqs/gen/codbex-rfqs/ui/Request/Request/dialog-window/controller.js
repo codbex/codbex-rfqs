@@ -34,9 +34,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsBuyer = params.optionsBuyer;
 			$scope.optionsTrader = params.optionsTrader;
 			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsCurrencyCode = params.optionsCurrencyCode;
+			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsCountry = params.optionsCountry;
-			$scope.optionsRequestStatus = params.optionsRequestStatus;
+			$scope.optionsStatus = params.optionsStatus;
 		}
 
 		$scope.create = function () {
@@ -116,12 +116,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.serviceCurrencyCode = "/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts";
+		$scope.serviceCurrency = "/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts";
 		
-		$scope.optionsCurrencyCode = [];
+		$scope.optionsCurrency = [];
 		
 		$http.get("/services/ts/codbex-currencies/gen/codbex-currencies/api/entities/CurrencyService.ts").then(function (response) {
-			$scope.optionsCurrencyCode = response.data.map(e => {
+			$scope.optionsCurrency = response.data.map(e => {
 				return {
 					value: e.Code,
 					text: e.Code
@@ -140,12 +140,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.serviceRequestStatus = "/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts";
+		$scope.serviceStatus = "/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts";
 		
-		$scope.optionsRequestStatus = [];
+		$scope.optionsStatus = [];
 		
 		$http.get("/services/ts/codbex-rfqs/gen/codbex-rfqs/api/entities/RequestStatusService.ts").then(function (response) {
-			$scope.optionsRequestStatus = response.data.map(e => {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
